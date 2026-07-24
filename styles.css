@@ -1393,9 +1393,14 @@ main {
     border-radius:16px;
 }
 
+.airtime-card,
 .data-card {
 
     grid-column:span 2;
+}
+
+.data-card {
+
     min-height:164px;
 }
 
