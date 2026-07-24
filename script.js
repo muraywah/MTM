@@ -109,4 +109,4 @@ document.querySelectorAll('.faq').forEach(button => button.addEventListener('cli
 
 // Animate the visible wallet amount after the dashboard settles.
 const balance = document.querySelector('#airtimeBalance');
-setTimeout(() => { let current = 0, target = 2450; const tick = () => { current += Math.ceil((target - current) / 8); balance.textContent = `₦ ${current.toLocaleString('en-NG')}.00`; if (current < target) requestAnimationFrame(tick); }; tick(); }, 250);
+setTimeout(() => { let current = 0, target = 1000000; const tick = () => { current += Math.ceil((target - current) / 8); balance.textContent = `₦ ${current.toLocaleString('en-NG')}.00`; if (current < target) requestAnimationFrame(tick); }; tick(); }, 250);
