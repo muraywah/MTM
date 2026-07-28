@@ -1,18 +1,60 @@
 # MTM Telecom Dashboard
 
-MTM is a polished, responsive telecom self-service web application for managing airtime, data, bundles, transfers, roaming, rewards, transactions, and customer support from one premium dashboard.
+A responsive telecom dashboard built with **HTML**, **CSS**, and **Vanilla JavaScript**. The project simulates common telecom services through a clean, modern user interface.
 
-Built as an original fictional mobile-network experience, it prioritizes a mobile-first dark interface, MTM-yellow accents, simple account management, and smooth micro-interactions.
+## Features
 
-## Highlights
+* Airtime and Data Balance cards
+* Quick Services
 
-- Airtime and data balance overview with plan status and expiry information
-- Quick flows for buying airtime/data and transferring services
-- Popular bundles, rewards, promotions, and transaction history
-- Help centre, FAQs, live-chat entry point, notifications, and account tools
-- Responsive layouts for mobile, tablet, and desktop
-- Built with HTML5, CSS3, and vanilla JavaScript only
+  * Buy Airtime
+  * Buy Data
+  * Transfer Airtime
+  * Roaming
+  * Voucher Recharge
+  * Support
+* Popular Data Bundles
+* Recent Transactions
+* Interactive modal for service actions
+* Toast notifications
+* Responsive design for desktop and mobile devices
 
-## Run locally
+## Technologies Used
 
-Open `index.html` in any modern web browser.
+* HTML5
+* CSS3
+* Vanilla JavaScript
+
+## Project Structure
+
+```text
+MTM/
+├── index.html
+├── style.css
+├── script.js
+└── README.md
+```
+
+## How to Run
+
+1. Clone this repository.
+2. Open the project folder.
+3. Open `index.html` in your browser.
+
+No additional installation or dependencies are required.
+
+## Future Improvements
+
+* User authentication
+* Backend integration
+* Payment processing
+* Live account balances
+* Transaction history with a database
+* API integration
+* User profile management
+
+## Author
+
+**Oluwamurewa Adakomola**
+
+Software Engineering Student | Frontend Developer
