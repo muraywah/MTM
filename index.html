@@ -1,87 +1,133 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MTM Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#121212">
+  <title>MTM - Your telecom, your way</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div class="logo">MTM</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#history">History</a>
-    </nav>
-    <button id="bell" aria-label="Notifications">🔔</button>
-  </header>
-
-  <main id="home">
-    <section class="welcome">
-      <div>
-        <p class="tag">MY MTM ACCOUNT</p>
-        <h1>Hello, Z’ello Murewa</h1>
-        <p class="muted">+234 801 234 5678</p>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="brand" aria-label="MTM home"><span>MTM</span></button>
+      <div class="desktop-nav" aria-label="Primary navigation">
+        <button class="nav-link active" data-page="home">Home</button>
+        <button class="nav-link" data-page="help">Help</button>
+        <button class="nav-link" data-page="more">More</button>
       </div>
-      <div class="avatar">ZM</div>
-    </section>
-
-    <section class="balances">
-      <article class="card airtime">
-        <p>Airtime balance</p>
-        <h2>₦2,450.00</h2>
-        <button data-service="Buy Airtime">Buy airtime</button>
-      </article>
-      <article class="card">
-        <p>Data balance</p>
-        <h2>8.4 GB</h2>
-        <div class="bar"><div></div></div>
-        <p>SmartFlex 10GB · Expires 28 July</p>
-        <button data-service="Buy Data">Buy data</button>
-      </article>
-    </section>
-
-    <section id="services">
-      <h2>Quick Services</h2>
-      <p class="muted">Choose what you want to do</p>
-      <div class="services">
-        <button class="service" data-service="Buy Airtime"><span>₦</span>Buy Airtime</button>
-        <button class="service" data-service="Buy Data"><span>⌁</span>Buy Data</button>
-        <button class="service" data-service="Transfer Airtime"><span>⇄</span>Transfer</button>
-        <button class="service" data-service="Roaming"><span>◎</span>Roaming</button>
-        <button class="service" data-service="Voucher Recharge"><span>▣</span>Voucher</button>
-        <button class="service" data-service="Support"><span>?</span>Support</button>
+      <div class="header-actions">
+        <button class="icon-btn notification-btn" aria-label="Notifications" data-action="notifications">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><i></i>
+        </button>
+        <button class="avatar" aria-label="Open profile" data-action="profile">AM</button>
       </div>
-    </section>
+    </header>
 
-    <section>
-      <h2>Popular Data Bundles</h2>
-      <div class="bundles">
-        <button class="bundle" data-bundle="1.5GB" data-price="750"><strong>1.5 GB</strong><span>7 days</span><b>₦750</b></button>
-        <button class="bundle" data-bundle="5GB" data-price="1500"><strong>5 GB</strong><span>7 days</span><b>₦1,500</b></button>
-        <button class="bundle" data-bundle="10GB" data-price="2500"><strong>10 GB</strong><span>30 days</span><b>₦2,500</b></button>
-      </div>
-    </section>
+    <aside class="sidebar" aria-label="Dashboard navigation">
+      <p class="side-label">Account</p>
+      <button class="side-link selected" data-page="home">Overview</button>
+      <button class="side-link" data-action="balance">Airtime & data</button>
+      <button class="side-link" data-action="transactions">Transactions</button>
+      <p class="side-label">Services</p>
+      <button class="side-link" data-action="buy-airtime">Recharge</button>
+      <button class="side-link" data-action="transfer">Transfer</button>
+      <button class="side-link" data-action="roaming">Roaming</button>
+      <button class="side-link" data-action="broadband">Broadband</button>
+      <p class="side-label">Support</p>
+      <button class="side-link" data-page="help">Help centre</button>
+      <button class="side-link" data-action="chat">Live chat</button>
+    </aside>
 
-    <section id="history">
-      <h2>Recent Transactions</h2>
-      <div class="history">
-        <div class="transaction"><span class="icon">⌁</span><div><b>Data purchase</b><small>Today, 10:42 AM</small></div><b>− ₦1,500</b></div>
-        <div class="transaction"><span class="icon">₦</span><div><b>Airtime received</b><small>Yesterday, 3:30 PM</small></div><b>+ ₦2,000</b></div>
-      </div>
-    </section>
-  </main>
+    <main>
+      <section id="home" class="page active" aria-label="Dashboard">
+        <div class="welcome-row">
+          <div><p class="eyebrow">YOUR MTM LINE</p><h1>Z’ello Murewa</h1><p class="muted">Dashboard <span>•</span> +234 801 234 5678</p></div>
+          <button class="period-select">July <span>⌄</span></button>
+        </div>
 
-  <div id="modalBg" class="modal-bg">
-    <div class="modal">
-      <h2 id="modalTitle">Service</h2>
-      <p id="modalText"></p>
-      <input id="amount" type="number" placeholder="Enter amount">
-      <button id="confirm">Continue</button>
-    </div>
+        <div class="balance-grid reveal">
+          <article class="balance-card airtime-card" data-action="buy-airtime">
+            <div class="card-top"><span class="card-icon">₦</span><span class="more-dot">•••</span></div>
+            <p>Airtime balance</p><h2 id="airtimeBalance">₦ 1,000,000.00</h2>
+            <button class="inline-action">Add airtime <span>→</span></button>
+          </article>
+          <article class="balance-card data-card" data-action="buy-data">
+            <div class="card-top"><span class="card-icon data-symbol">◒</span><span class="status-good">Active</span></div>
+            <p>Data balance</p><h2>8.4 <small>GB</small></h2>
+            <div class="progress-label"><span>SmartFlex 10GB</span><span>70% left</span></div>
+            <div class="progress"><i style="--width:70%"></i></div>
+            <p class="expiry">Expires 28 Jul, 11:59 PM</p>
+          </article>
+          <article class="reward-card" data-action="rewards">
+            <div class="card-top"><span class="card-icon star">✦</span><span class="arrow">›</span></div>
+            <p>MTM Rewards</p><h2>1,240 <small>pts</small></h2>
+            <div class="points"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="empty"></i><i class="empty"></i><i class="empty"></i></div>
+            <p class="expiry">260 points to your next reward</p>
+          </article>
+        </div>
+
+        <section class="section reveal">
+          <div class="section-head"><h3>Quick services</h3><button class="text-btn" data-action="services">View all</button></div>
+          <div class="quick-grid">
+            <button class="quick-card" data-action="buy-airtime"><span class="quick-icon">₦</span><b>Buy airtime</b></button>
+            <button class="quick-card" data-action="buy-data"><span class="quick-icon">⌁</span><b>Buy data</b></button>
+            <button class="quick-card" data-action="transfer"><span class="quick-icon">⇄</span><b>Transfer</b></button>
+            <button class="quick-card" data-action="roaming"><span class="quick-icon">◎</span><b>Roaming</b></button>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section class="section reveal">
+            <div class="section-head"><h3>Popular bundles</h3><button class="text-btn" data-action="buy-data">See all</button></div>
+            <div class="bundle-rail">
+              <article class="bundle-card featured" data-bundle="5GB"><span class="tag">POPULAR</span><h3>5 <small>GB</small></h3><p>Anytime data</p><div><strong>₦1,500</strong><span>7 days</span></div></article>
+              <article class="bundle-card" data-bundle="10GB"><h3>10 <small>GB</small></h3><p>SmartFlex data</p><div><strong>₦2,500</strong><span>30 days</span></div></article>
+              <article class="bundle-card" data-bundle="Night"><span class="tag dark-tag">NIGHT</span><h3>2 <small>GB</small></h3><p>Night streaming</p><div><strong>₦250</strong><span>11PM–5AM</span></div></article>
+            </div>
+          </section>
+
+          <section class="promo-card reveal">
+            <div class="promo-content"><span class="eyebrow">WEEKEND BONUS</span><h2>More moments,<br>more data.</h2><p>Get an extra 2GB when you buy 10GB this weekend.</p><button class="yellow-btn" data-action="buy-data">Explore offer <span>→</span></button></div>
+            <div class="promo-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><b>+2<br><small>GB</small></b></div>
+            <div class="carousel-dots"><i class="active"></i><i></i><i></i></div>
+          </section>
+        </div>
+
+        <section class="section transactions reveal">
+          <div class="section-head"><h3>Recent transactions</h3><button class="text-btn" data-action="transactions">View history</button></div>
+          <div class="transaction-list">
+            <button class="transaction" data-action="transactions"><span class="transaction-icon data-tx">⌁</span><span><b>Data purchase</b><small>Today, 10:42 AM · SmartFlex 5GB</small></span><span class="amount"><b>− ₦1,500</b><small class="success">Successful</small></span><span class="chevron">›</span></button>
+            <button class="transaction" data-action="transactions"><span class="transaction-icon air-tx">₦</span><span><b>Airtime received</b><small>Yesterday, 3:30 PM · Ade B.</small></span><span class="amount"><b>+ ₦2,000</b><small class="success">Successful</small></span><span class="chevron">›</span></button>
+          </div>
+        </section>
+      </section>
+
+      <section id="help" class="page" aria-label="Help and support">
+        <div class="page-heading"><p class="eyebrow">SUPPORT</p><h1>How can we help?</h1><p class="muted">Find answers or speak with the MTM care team.</p></div>
+        <label class="search-box"><span>⌕</span><input type="search" placeholder="Search for help" aria-label="Search help"></label>
+        <button class="chat-banner" data-action="chat"><span class="chat-icon">◌</span><span><b>Chat with us</b><small>Typical reply in under 3 minutes</small></span><span>→</span></button>
+        <section class="section"><div class="section-head"><h3>Common topics</h3></div><div class="topic-grid"><button>Data issues</button><button>Recharge</button><button>SIM services</button><button>Roaming</button><button>Payments</button><button>My account</button></div></section>
+        <section class="section"><div class="section-head"><h3>Frequently asked questions</h3></div><div class="faq-list"><button class="faq">Why is my data not working?<span>+</span></button><p>Your device may need a quick network refresh. Turn flight mode on and off, then check your data settings.</p><button class="faq">How do I activate roaming?<span>+</span></button><p>Choose Roaming from Quick services, pick your destination, then confirm the available pass.</p><button class="faq">How do I redeem reward points?<span>+</span></button><p>Open MTM Rewards from the dashboard to see rewards that match your available points.</p></div></section>
+      </section>
+
+      <section id="more" class="page" aria-label="More services">
+        <div class="page-heading"><p class="eyebrow">EXPLORE MTM</p><h1>More for your line</h1><p class="muted">Manage services, payments, and your account.</p></div>
+        <div class="service-groups">
+          <section><h3>Account tools</h3><div class="more-grid"><button data-action="sim">SIM services <span>›</span></button><button data-action="device">Device management <span>›</span></button><button data-action="broadband">Broadband <span>›</span></button><button data-action="family">Family & friends <span>›</span></button></div></section>
+          <section><h3>Payments & recharge</h3><div class="more-grid"><button data-action="voucher">Recharge voucher <span>›</span></button><button data-action="cash">Airtime to cash <span>›</span></button><button data-action="bills">Bills & utilities <span>›</span></button><button data-action="transactions">Transactions <span>›</span></button></div></section>
+          <section><h3>Discover</h3><div class="more-grid"><button data-action="buy-data">Special bundles <span>›</span></button><button data-action="buy-data">Night plans <span>›</span></button><button data-action="entertainment">Entertainment <span>›</span></button><button data-action="rewards">Promotions & rewards <span>›</span></button></div></section>
+        </div>
+      </section>
+    </main>
+
+    <button class="fab" data-action="support" aria-label="Open support options">?</button>
+    <nav class="bottom-nav" aria-label="Primary navigation"><button class="active" data-page="home"><span>⌂</span>Home</button><button data-page="help"><span>◌</span>Help</button><button data-page="more"><span>•••</span>More</button></nav>
   </div>
-  <div id="toast" class="toast">Done</div>
+
+  <div class="overlay" id="overlay"></div>
+  <section class="sheet" id="sheet" aria-modal="true" role="dialog" aria-hidden="true"><div class="sheet-handle"></div><button class="sheet-close" aria-label="Close">×</button><div id="sheetContent"></div></section>
+  <div class="toast" id="toast" role="status"><span>✓</span><p id="toastMessage">Done</p></div>
   <script src="script.js"></script>
 </body>
 </html>
